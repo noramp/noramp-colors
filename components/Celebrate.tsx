@@ -1,5 +1,5 @@
 import React from "react";
-import useWindowSize from "react-use/lib/useWindowSize";
+import useWindowSize from "@/hooks/useWindowSize";
 import Confetti from "react-confetti";
 
 const Celebrate = () => {

@@ -1,7 +1,10 @@
 import axios from "axios";
-import { NORAMP_APP_ID, NORAMP_TRIGGER_ID } from "../../../config/config";
-
-export const createPrice = async (appId: string, createPriceDto) => {
+import { NORAMP_APP_ID, NORAMP_TRIGGER_ID } from "@/config/config";
+import type { NextApiRequest, NextApiResponse } from "next";
+type Data = {
+  name: string;
+};
+export const createPrice = async (appId: string, createPriceDto: any) => {
   return axios
     .post(`/prices/${appId}`, createPriceDto, {
       baseURL: process.env.NORAMP_API_URL,
@@ -18,10 +21,10 @@ export const createPrice = async (appId: string, createPriceDto) => {
     });
 };
 
-const handler = async (req, res) => {
-  const nft = DATA.find((n) => n.id == req.query.id);
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  const nftId = req.query.id;
 
-  if (!nft) {
+  if (!nftId) {
     res.statusCode = 404;
 
     return;
@@ -32,7 +35,7 @@ const handler = async (req, res) => {
     trigger_id: NORAMP_TRIGGER_ID,
     trigger_data: {
       params_data: {
-        token_id: String(nft.id),
+        token_id: String(nftId),
         receiver_id: "elijosedev.testnet", // TODO: Replace with the receiver account ID
       },
     },
