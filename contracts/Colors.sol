@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 
 /* 
 ░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ░█████╗░███╗░░██╗  ░█████╗░██╗░░██╗░█████╗░██╗███╗░░██╗
@@ -45,7 +46,7 @@ import "@openzeppelin/contracts/utils/Address.sol";
                       `"""----"""`
 */
 
-contract Colors is ERC721, Ownable {
+contract Colors is ERC721, ERC721Enumerable, Ownable {
     using Counters for Counters.Counter;
     using SafeMath for uint256;
     using Address for address;
