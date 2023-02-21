@@ -4,11 +4,13 @@ import { useCallback, useState } from "react";
 import { createPriceForNft } from "@/lib/api";
 import toast from "react-hot-toast";
 import NoRampPayWidget from "@/components/NoRampPayWidget";
+import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
   const [showForm, setShowForm] = useState(false);
   const [price, setPrice] = useState(null);
   const [error, setError] = useState("");
+  const { width } = useWindowSize();
 
   const handleBuy = useCallback(async () => {
     try {
@@ -53,22 +55,68 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>T2</title>
+        <title>NoRamp Colors</title>
         <meta name="description" content="NoRamp Colors" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
+        <nav>
+          <CustomConnectButton />
+        </nav>
         <div className="text-3xl font-bold underline">
-          <h1>Welcome to the NoRamp Colors</h1>
           <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto md:flex-row">
-            <div className="flex-1 w-11/12 max-w-xs md:max-w-md"></div>
+            <div className="flex w-full">
+              {width > 768 ? (
+                <video
+                  className="logo"
+                  src="/video/mobile_hero.mp4"
+                  key="/video/mobile_hero.mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                ></video>
+              ) : (
+                <video
+                  src="/video/hero.mp4"
+                  className="logo"
+                  key="/video/hero.mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                ></video>
+              )}
+            </div>
+            <div className="">
+              {width > 768 ? (
+                <video
+                  className="colorGridVideo"
+                  src="/video/mobile_color_grid.mp4"
+                  key="/video/mobile_color_grid.mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                ></video>
+              ) : (
+                <video
+                  className="colorGridVideo"
+                  src="/video/color_grid.mp4"
+                  key="/video/color_grid.mp4"
+                  autoPlay
+                  playsInline
+                  loop
+                  muted
+                ></video>
+              )}
+            </div>
 
             <div className="flex items-center justify-center flex-1">
               {renderContent()}
             </div>
           </div>
-          <CustomConnectButton />
         </div>
       </main>
     </>
