@@ -61,61 +61,56 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <nav>
-          <CustomConnectButton />
-        </nav>
-        <div className="text-3xl font-bold underline">
-          <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto md:flex-row">
-            <div className="flex w-full">
-              {width > 768 ? (
-                <video
-                  className="logo"
-                  src="/video/mobile_hero.mp4"
-                  key="/video/mobile_hero.mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                ></video>
-              ) : (
-                <video
-                  src="/video/hero.mp4"
-                  className="logo"
-                  key="/video/hero.mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                ></video>
-              )}
-            </div>
-            <div className="">
-              {width > 768 ? (
-                <video
-                  className="colorGridVideo"
-                  src="/video/mobile_color_grid.mp4"
-                  key="/video/mobile_color_grid.mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                ></video>
-              ) : (
-                <video
-                  className="colorGridVideo"
-                  src="/video/color_grid.mp4"
-                  key="/video/color_grid.mp4"
-                  autoPlay
-                  playsInline
-                  loop
-                  muted
-                ></video>
-              )}
-            </div>
+        <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto md:flex-row">
+          <div className="flex w-full">
+            {width > 768 ? (
+              <video
+                className="logo"
+                src="/video/mobile_hero.mp4"
+                key="/video/mobile_hero.mp4"
+                autoPlay
+                playsInline
+                loop
+                muted
+              ></video>
+            ) : (
+              <video
+                src="/video/hero.mp4"
+                className="logo"
+                key="/video/hero.mp4"
+                autoPlay
+                playsInline
+                loop
+                muted
+              ></video>
+            )}
+          </div>
+          <div className="">
+            {width > 768 ? (
+              <video
+                className="colorGridVideo"
+                src="/video/mobile_color_grid.mp4"
+                key="/video/mobile_color_grid.mp4"
+                autoPlay
+                playsInline
+                loop
+                muted
+              ></video>
+            ) : (
+              <video
+                className="colorGridVideo"
+                src="/video/color_grid.mp4"
+                key="/video/color_grid.mp4"
+                autoPlay
+                playsInline
+                loop
+                muted
+              ></video>
+            )}
+          </div>
 
-            <div className="flex items-center justify-center flex-1">
-              {renderContent()}
-            </div>
+          <div className="flex items-center justify-center flex-1">
+            {renderContent()}
           </div>
         </div>
       </main>
