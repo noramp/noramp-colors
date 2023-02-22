@@ -37,13 +37,10 @@ next-env.d.ts
 
 #Hardhat files
 cache
+artifacts
 .env
 coverage
 coverage.json
 typechain
 typechain-types
-
-# Hardhat files
-cache
-artifacts
 

@@ -8,6 +8,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
     {
       amount: "1",
       trigger_id: NORAMP_TRIGGER_ID,
+      trigger_data: {
+        params_data: {
+          minter: req.query.address,
+        },
+      },
     },
     {
       headers: {

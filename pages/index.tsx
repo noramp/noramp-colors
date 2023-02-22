@@ -1,7 +1,6 @@
 import Head from "next/head";
-import { CustomConnectButton } from "@/components/CustomConnectButton";
 import { useCallback, useState } from "react";
-import { createPriceForNft } from "@/lib/api";
+import axios from "axios";
 import toast from "react-hot-toast";
 import NoRampPayWidget from "@/components/NoRampPayWidget";
 import useWindowSize from "@/hooks/useWindowSize";
@@ -11,10 +10,16 @@ export default function Home() {
   const [price, setPrice] = useState(null);
   const [error, setError] = useState("");
   const { width } = useWindowSize();
+  const [minterAddress, setMinterAddress] = useState("");
 
   const handleBuy = useCallback(async () => {
     try {
-      const newPrice = await createPriceForNft();
+      const newPrice = (await axios.get(`/api/prices/${minterAddress}`)).data;
+
+      if (!newPrice) {
+        toast.error("Error creating price");
+      }
+
       setPrice(newPrice);
     } catch (e) {
       toast.error("Error creating price");
