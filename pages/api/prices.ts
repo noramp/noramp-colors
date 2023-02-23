@@ -12,9 +12,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<any>) => {
     currency: "usd",
     trigger_id: NORAMP_TRIGGER_ID,
     trigger_data: {
-      params_data: {
-        minter: req.query.address,
-      },
+      params_data: [req.query.address],
     },
     amount: 5,
   };
