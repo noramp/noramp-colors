@@ -21,6 +21,7 @@ export const CustomConnectButton = () => {
           (!authenticationStatus || authenticationStatus === "authenticated");
         return (
           <div
+            className="bg-blue-500 text-white rounded-md px-4 py-2"
             {...(!ready && {
               "aria-hidden": true,
               style: {
@@ -46,7 +47,7 @@ export const CustomConnectButton = () => {
                 );
               }
               return (
-                <div style={{ display: "flex", gap: 12 }}>
+                <div>
                   <button
                     onClick={openChainModal}
                     style={{ display: "flex", alignItems: "center" }}
