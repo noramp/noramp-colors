@@ -1,6 +1,9 @@
 import Head from "next/head";
 import { useCallback, useState } from "react";
 import axios from "axios";
+import { CustomConnectButton } from "@/components/CustomConnectButton";
+
+import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
 import NoRampPayWidget from "@/components/NoRampPayWidget";
 import useWindowSize from "@/hooks/useWindowSize";
@@ -10,11 +13,14 @@ export default function Home() {
   const [price, setPrice] = useState(null);
   const [error, setError] = useState("");
   const { width } = useWindowSize();
-  const [minterAddress, setMinterAddress] = useState("");
+  const { address } = useAccount();
 
   const handleBuy = useCallback(async () => {
     try {
-      const newPrice = (await axios.get(`/api/prices/${minterAddress}`)).data;
+      const newPrice = (await axios.get(`/api/prices?address=${address}`)).data
+        .data;
+
+      console.log("newPrice", newPrice);
 
       if (!newPrice) {
         toast.error("Error creating price");
@@ -66,11 +72,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto md:flex-row">
-          <div className="flex w-full">
+        <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto">
+          <div className="flex justify-center w-full">
             {width > 768 ? (
               <video
-                className="logo"
+                className="logo h-96"
                 src="/video/mobile_hero.mp4"
                 key="/video/mobile_hero.mp4"
                 autoPlay
@@ -89,6 +95,17 @@ export default function Home() {
                 muted
               ></video>
             )}
+          </div>
+          <div>
+            <p className="font-bold text-lg max-w-sm text-center">
+              Colors on Chain by No Ramp is a fully onchain NFT you can buy with
+              a simple credit card 1 click :)
+            </p>
+          </div>
+          <CustomConnectButton />
+
+          <div className="flex items-center justify-center flex-1">
+            {renderContent()}
           </div>
           <div className="">
             {width > 768 ? (
@@ -112,10 +129,6 @@ export default function Home() {
                 muted
               ></video>
             )}
-          </div>
-
-          <div className="flex items-center justify-center flex-1">
-            {renderContent()}
           </div>
         </div>
       </main>

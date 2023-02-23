@@ -2,22 +2,54 @@
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/utils/Counters.sol";
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "erc721a/contracts/ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Colors is ERC721, Ownable {
-  using Counters for Counters.Counter;
+/* 
 
-  Counters.Counter private _tokenIds;
+░█████╗░░█████╗░██╗░░░░░░█████╗░██████╗░░██████╗  ░█████╗░███╗░░██╗  ░█████╗░██╗░░██╗░█████╗░██╗███╗░░██╗
+██╔══██╗██╔══██╗██║░░░░░██╔══██╗██╔══██╗██╔════╝  ██╔══██╗████╗░██║  ██╔══██╗██║░░██║██╔══██╗██║████╗░██║
+██║░░╚═╝██║░░██║██║░░░░░██║░░██║██████╔╝╚█████╗░  ██║░░██║██╔██╗██║  ██║░░╚═╝███████║███████║██║██╔██╗██║
+██║░░██╗██║░░██║██║░░░░░██║░░██║██╔══██╗░╚═══██╗  ██║░░██║██║╚████║  ██║░░██╗██╔══██║██╔══██║██║██║╚████║
+╚█████╔╝╚█████╔╝███████╗╚█████╔╝██║░░██║██████╔╝  ╚█████╔╝██║░╚███║  ╚█████╔╝██║░░██║██║░░██║██║██║░╚███║
+░╚════╝░░╚════╝░╚══════╝░╚════╝░╚═╝░░╚═╝╚═════╝░  ░╚════╝░╚═╝░░╚══╝  ░╚════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝╚═╝░░╚══╝
 
-  struct Metadata {
-    string hexCode;
-  }
+░░░░░░  ███╗░░██╗░█████╗░  ██╗██████╗░███████╗░██████╗  ███╗░░██╗░█████╗░  ██████╗░░██████╗
+░░░░░░  ████╗░██║██╔══██╗  ██║██╔══██╗██╔════╝██╔════╝  ████╗░██║██╔══██╗  ██╔══██╗██╔════╝
+█████╗  ██╔██╗██║██║░░██║  ██║██████╔╝█████╗░░╚█████╗░  ██╔██╗██║██║░░██║  ██████╦╝╚█████╗░
+╚════╝  ██║╚████║██║░░██║  ██║██╔═══╝░██╔══╝░░░╚═══██╗  ██║╚████║██║░░██║  ██╔══██╗░╚═══██╗
+░░░░░░  ██║░╚███║╚█████╔╝  ██║██║░░░░░██║░░░░░██████╔╝  ██║░╚███║╚█████╔╝  ██████╦╝██████╔╝
+░░░░░░  ╚═╝░░╚══╝░╚════╝░  ╚═╝╚═╝░░░░░╚═╝░░░░░╚═════╝░█  ╚═╝░░╚══╝░╚════╝░  ╚═════╝░╚═════╝░
 
-  string public baseURI;
-  uint256 public maxSupply;
+         :         . : 
+         .       *
+                      (
+                        )     (
+                 ___...(-------)-....___
+             .-""       )    (          ""-.
+       .-'``'|-._             )         _.-|
+      /  .--.|   `""---...........---""`   |
+     /  /    |                                       |
+     |  |    |                                        |
+      \  \   |       Colors On Chain      |
+       `\ `\ |                                       |
+         `\ `|         Exclusively            |
+         _/ /\        Generated and        /
+        (__/  \      Stored On Chain      /
+     _..---""` \                         /`""---.._
+  .-'           \                       /                  '-.
+ :               `-.__             __.-'                   :
+ :                  ) ""---...---"" (                 :
+  '._               `"--...___...--"`              _.'
+    \""--..__                              __..--""/
+     '._     """----.....______.....----"""     _.'
+        `""--..,,_____            _____,,..--""`
+                      `"""----"""`
+
+*/
+
+contract Colors is ERC721A, Ownable {
   bool public publicMintLive;
-  mapping(uint256 => Metadata) public idToMetadata;
   mapping(string => uint256) public hexToDecimal;
   mapping(uint256 => string) public decimalToHex;
 
@@ -58,7 +90,7 @@ contract Colors is ERC721, Ownable {
     15
   ];
 
-  constructor() ERC721("Colors", "COLORS") {
+  constructor() ERC721A("Colors", "COLORS") {
     for (uint i = 0; i < 16; i++) {
       hexToDecimal[hexes[i]] = decimals[i];
       decimalToHex[decimals[i]] = hexes[i];
@@ -71,12 +103,7 @@ contract Colors is ERC721, Ownable {
 
   function mint(address minter) external onlyOwner {
     require(publicMintLive, "Public mint not live");
-    uint256 newItemId = _tokenIds.current();
-    _tokenIds.increment();
-    newItemId = _tokenIds.current();
-    string memory color = generateColor(newItemId);
-    idToMetadata[newItemId] = Metadata(color);
-    _safeMint(minter, newItemId);
+    _safeMint(minter, 1);
   }
 
   function tokenURI(
@@ -87,7 +114,7 @@ contract Colors is ERC721, Ownable {
       0
     ] = '<svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 350 350">';
     parts[1] = '<rect width="100%" height="100%" fill="#';
-    parts[2] = getColorHexCode(tokenId);
+    parts[2] = generateColor(tokenId);
     parts[3] = '" />';
     parts[4] = "</svg>";
 
@@ -104,7 +131,7 @@ contract Colors is ERC721, Ownable {
             '", "description": "No Ramp Colors are randomized hex colors generated and stored on chain. All functionality is intentionally omitted for others to interpret. Feel free to use Colors in any way you want.", "image": "data:image/svg+xml;base64,',
             Base64.encode(bytes(output)),
             '", "attributes": [{"trait_type": "Hex", "value": "#',
-            getColorHexCode(tokenId),
+            generateColor(tokenId),
             '"}]}'
           )
         )
@@ -149,43 +176,11 @@ contract Colors is ERC721, Ownable {
     return output;
   }
 
-  function random(string memory input) internal pure returns (uint256) {
-    return uint256(keccak256(abi.encodePacked(input)));
-  }
-
-  function getColorHexCode(
-    uint256 tokenId
-  ) public view returns (string memory colorHexCode) {
-    Metadata memory color = idToMetadata[tokenId];
-    return color.hexCode;
-  }
-
-  function getRed(uint256 tokenId) public view returns (uint256) {
-    uint256 redValue = hexToDecimal[getAHex(tokenId, "0", hexes)] *
-      16 +
-      hexToDecimal[getAHex(tokenId, "1", hexes)];
-    return redValue;
-  }
-
-  function getGreen(uint256 tokenId) public view returns (uint256) {
-    uint256 greenValue = hexToDecimal[getAHex(tokenId, "4", hexes)] *
-      16 +
-      hexToDecimal[getAHex(tokenId, "5", hexes)];
-    return greenValue;
-  }
-
-  function getBlue(uint256 tokenId) public view returns (uint256) {
-    uint256 blueValue = hexToDecimal[getAHex(tokenId, "2", hexes)] *
-      16 +
-      hexToDecimal[getAHex(tokenId, "3", hexes)];
-    return blueValue;
-  }
-
   function buildHexString(
     uint256 red,
     uint256 green,
     uint256 blue
-  ) public view returns (string memory) {
+  ) external view returns (string memory) {
     string[6] memory parts;
     unchecked {
       uint256 a = red / 16;
@@ -215,6 +210,10 @@ contract Colors is ERC721, Ownable {
       )
     );
     return output;
+  }
+
+  function random(string memory input) internal pure returns (uint256) {
+    return uint256(keccak256(abi.encodePacked(input)));
   }
 
   function toString(uint256 value) internal pure returns (string memory) {
