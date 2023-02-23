@@ -98,8 +98,8 @@ export default function Home() {
           </div>
           <div>
             <p className="font-bold text-lg max-w-sm text-center">
-              Colors on Chain by No Ramp is a fully onchain NFT you can buy with
-              a simple credit card 1 click :)
+              Colors on Chain by NoRamp is a fully onchain NFT of a random Color
+              you can buy with a simple credit card 1 click!
             </p>
           </div>
           <CustomConnectButton />
