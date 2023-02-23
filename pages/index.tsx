@@ -17,8 +17,11 @@ export default function Home() {
 
   const handleBuy = useCallback(async () => {
     try {
-      const newPrice = (await axios.get(`/api/prices?address=${address}`)).data
-        .data;
+      const newPrice = (
+        await axios.get(`/api/prices?address=${address}`, {
+          baseURL: process.env.NEXT_PUBLIC_APP_URL,
+        })
+      ).data.data;
 
       console.log("newPrice", newPrice);
 
@@ -57,7 +60,7 @@ export default function Home() {
         onClick={handleBuy}
       >
         <span className="flex items-center rounded-md text-sm px-4 py-2">
-          Buy
+          Buy $5 On-chain Color
         </span>
       </button>
     );
