@@ -28,8 +28,6 @@ Other option is to click on the button below to create a new repository that loo
 
 [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/noramp/noramp-demo-app/tree/main)
 
-Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 ## Setup env variables
 
 To setup env variables on vercel you can folllow this guide: https://vercel.com/docs/concepts/projects/environment-variables
