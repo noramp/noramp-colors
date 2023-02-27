@@ -23,7 +23,7 @@ const NoRampPayWidget = ({ price }: any) => {
   return (
     <div className="flex flex-col items-center">
       <iframe
-        src={`${NORAMP_EMBED_URL}/embed/payments/${NORAMP_APP_ID}?device=desktop&theme=dark&price_id=${price.id}`}
+        src={`${NORAMP_EMBED_URL}/embed/payments/${NORAMP_APP_ID}?device=desktop&theme=light&price_id=${price.id}`}
         height="180"
         width="450"
       />
