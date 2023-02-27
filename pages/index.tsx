@@ -77,7 +77,7 @@ export default function Home() {
       <main>
         <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto">
           <div className="flex justify-center w-full">
-            {width > 768 ? (
+            {width < 768 ? (
               <video
                 className="logo h-96"
                 src="/video/mobile_hero.mp4"
