@@ -111,7 +111,7 @@ export default function Home() {
             {renderContent()}
           </div>
           <div className="">
-            {width > 768 ? (
+            {width < 768 ? (
               <video
                 className="colorGridVideo"
                 src="/video/mobile_color_grid.mp4"
