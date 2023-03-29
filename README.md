@@ -1,4 +1,4 @@
-# NoRamp demo app - Colors
+# NoRamp One Click Demo App - Colors On Chain by NoRamp
 
 ## Getting Started
 
