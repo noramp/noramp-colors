@@ -17,9 +17,12 @@ export default function Home() {
   const generatePrice = useCallback(async () => {
     try {
       const newPrice = (
-        await axios.get(`/api/prices?address=${"test"}`, {
-          baseURL: process.env.NEXT_PUBLIC_APP_URL,
-        })
+        await axios.get(
+          `/api/prices?address=${"0x2184d6a4Fbd26584eb4FF90a215C1DB334209053"}`,
+          {
+            baseURL: process.env.NEXT_PUBLIC_APP_URL,
+          }
+        )
       ).data.data;
 
       console.log("newPrice", newPrice);
