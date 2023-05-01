@@ -8884,6 +8884,11 @@ nopt@3.x:
   dependencies:
     abbrev "1"
 
+norampkit@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/norampkit/-/norampkit-1.0.0.tgz#5d65f25c563f4a3da6b658d92eff06238d00208e"
+  integrity sha512-2g+eMCJAWFL9i0/H9jJxy8qzSYhKx+onD/JneLwmcwXsupiigj3rTXeuJ3ew2FoAoL8VkaEKj4SbvChEnhn2WA==
+
 normalize-package-data@^2.3.2:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.5.0.tgz#e66db1838b200c1dfc233225d12cb36520e234a8"

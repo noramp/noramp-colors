@@ -1,21 +1,23 @@
 import Head from "next/head";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { CustomConnectButton } from "@/components/CustomConnectButton";
-
+import { NoRampOneClick } from "norampkit";
 import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
-import NoRampPayWidget from "@/components/NoRampPayWidget";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
-  const [showForm, setShowForm] = useState(false);
-  const [price, setPrice] = useState(null);
+  const [priceId, setPriceId] = useState("");
   const [error, setError] = useState("");
   const { width } = useWindowSize();
   const { address } = useAccount();
 
-  const handleBuy = useCallback(async () => {
+  useEffect(() => {
+    generatePrice();
+  }, []);
+
+  const generatePrice = useCallback(async () => {
     try {
       const newPrice = (
         await axios.get(`/api/prices?address=${address}`, {
@@ -29,12 +31,11 @@ export default function Home() {
         toast.error("Error creating price");
       }
 
-      setPrice(newPrice);
+      setPriceId(newPrice.id);
     } catch (e) {
       toast.error("Error creating price");
       setError("Error creating price");
     }
-    setShowForm(true);
   }, []);
 
   const renderContent = () => {
@@ -50,14 +51,14 @@ export default function Home() {
         </div>
       );
     }
-    if (showForm) {
-      return <NoRampPayWidget price={price} />;
+    if (priceId) {
+      return <></>;
     }
     return (
       <button
         className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 focus:!ring-2 group flex h-min items-center justify-center p-0.5 text-center font-medium focus:z-10 rounded-lg"
         type="button"
-        onClick={handleBuy}
+        onClick={generatePrice}
       >
         <span className="flex items-center rounded-md text-sm px-4 py-2">
           Buy $5 On-chain Color
@@ -109,7 +110,12 @@ export default function Home() {
           <CustomConnectButton />
 
           <div className="flex items-center justify-center flex-1">
-            {renderContent()}
+            {/* {renderContent()} */}
+            <NoRampOneClick
+              appId="app_4zd8QoywncK1itHmVhhowU"
+              priceId={priceId}
+              auth={true}
+            />
           </div>
           <div className="">
             {width < 768 ? (

@@ -23,6 +23,7 @@
     "ethers": "^5.4.7",
     "hardhat-gas-reporter": "^1.0.9",
     "next": "13.1.6",
+    "norampkit": "^1.0.0",
     "react": "18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
