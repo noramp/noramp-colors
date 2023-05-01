@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import { CustomConnectButton } from "@/components/CustomConnectButton";
 import { NoRampOneClick } from "norampkit";
 import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
@@ -37,35 +36,6 @@ export default function Home() {
       setError("Error creating price");
     }
   }, []);
-
-  const renderContent = () => {
-    if (error) {
-      return (
-        <div
-          className="flex flex-col gap-2 p-4 text-sm text-red-700 bg-red-100 border-red-500 dark:bg-red-200 dark:text-red-800 rounded-lg"
-          role="alert"
-        >
-          <div className="flex items-center">
-            <span>{error}</span>
-          </div>
-        </div>
-      );
-    }
-    if (priceId) {
-      return <></>;
-    }
-    return (
-      <button
-        className="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:ring-cyan-300 dark:focus:ring-cyan-800 focus:!ring-2 group flex h-min items-center justify-center p-0.5 text-center font-medium focus:z-10 rounded-lg"
-        type="button"
-        onClick={generatePrice}
-      >
-        <span className="flex items-center rounded-md text-sm px-4 py-2">
-          Buy $5 On-chain Color
-        </span>
-      </button>
-    );
-  };
 
   return (
     <>
@@ -107,10 +77,8 @@ export default function Home() {
               like.
             </p>
           </div>
-          <CustomConnectButton />
 
           <div className="flex items-center justify-center flex-1">
-            {/* {renderContent()} */}
             <NoRampOneClick
               appId="app_4zd8QoywncK1itHmVhhowU"
               priceId={priceId}
