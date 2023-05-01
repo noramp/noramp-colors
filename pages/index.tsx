@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { NoRampOneClick } from "norampkit";
-import { useAccount } from "wagmi";
 import toast from "react-hot-toast";
 import useWindowSize from "@/hooks/useWindowSize";
 
@@ -10,7 +9,6 @@ export default function Home() {
   const [priceId, setPriceId] = useState("");
   const [error, setError] = useState("");
   const { width } = useWindowSize();
-  const { address } = useAccount();
 
   useEffect(() => {
     generatePrice();
@@ -19,7 +17,7 @@ export default function Home() {
   const generatePrice = useCallback(async () => {
     try {
       const newPrice = (
-        await axios.get(`/api/prices?address=${address}`, {
+        await axios.get(`/api/prices?address=${"test"}`, {
           baseURL: process.env.NEXT_PUBLIC_APP_URL,
         })
       ).data.data;
