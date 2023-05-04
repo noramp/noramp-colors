@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>NoRamp Colors</title>
+        <title>NoRamp Colors | Testnet</title>
         <meta name="description" content="NoRamp Colors" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -73,9 +73,9 @@ export default function Home() {
           </div>
           <div>
             <p className="font-bold text-lg max-w-sm text-center">
-              ColorsOnChain by NoRamp is an infinite collection of colors that
-              are generated and stored on-chain for you to use however you’d
-              like.
+              ColorsOnChain Testnet by NoRamp is an infinite collection of
+              colors that are generated and stored on-chain for you to use
+              however you’d like.
             </p>
           </div>
 
