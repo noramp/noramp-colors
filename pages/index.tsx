@@ -49,7 +49,7 @@ export default function Home() {
           <div className="flex items-center justify-center flex-1">
             <NoRampOneClick
               appId="app_4zd8QoywncK1itHmVhhowU"
-              priceId={"price_0WnjM3NMvkBGn8BWlpwemp"}
+              priceId="price_0WnjM3NMvkBGn8BWlpwemp"
               auth={true}
             />
           </div>
