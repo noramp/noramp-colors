@@ -50,7 +50,7 @@ export default function Home() {
             <NoRampOneClick
               appId="app_4zd8QoywncK1itHmVhhowU"
               priceId="price_0WnjM3NMvkBGn8BWlpwemp"
-              auth={true}
+              testnet
             />
           </div>
           <div className="">
