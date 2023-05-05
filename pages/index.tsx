@@ -1,42 +1,9 @@
 import Head from "next/head";
-import { useCallback, useEffect, useState } from "react";
-import axios from "axios";
 import { NoRampOneClick } from "norampkit";
-import toast from "react-hot-toast";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
-  const [priceId, setPriceId] = useState("");
-  const [error, setError] = useState("");
   const { width } = useWindowSize();
-
-  useEffect(() => {
-    generatePrice();
-  }, []);
-
-  const generatePrice = useCallback(async () => {
-    try {
-      const newPrice = (
-        await axios.get(
-          `/api/prices?address=${"0x2184d6a4Fbd26584eb4FF90a215C1DB334209053"}`,
-          {
-            baseURL: process.env.NEXT_PUBLIC_APP_URL,
-          }
-        )
-      ).data.data;
-
-      console.log("newPrice", newPrice);
-
-      if (!newPrice) {
-        toast.error("Error creating price");
-      }
-
-      setPriceId(newPrice.id);
-    } catch (e) {
-      toast.error("Error creating price");
-      setError("Error creating price");
-    }
-  }, []);
 
   return (
     <>
@@ -82,8 +49,7 @@ export default function Home() {
           <div className="flex items-center justify-center flex-1">
             <NoRampOneClick
               appId="app_4zd8QoywncK1itHmVhhowU"
-              priceId={priceId}
-              auth={true}
+              priceId={"price_1JQ4ZtG8ZvKYlo2CJ5X0QX6S"}
             />
           </div>
           <div className="">
