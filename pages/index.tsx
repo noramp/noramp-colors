@@ -47,7 +47,7 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-center flex-1">
-            <NoRampOneClick priceId="price_20iDZj5nETBUOi1i5kOqTa" testnet />
+            <NoRampOneClick priceId="price_40xjcBIuVqmwlNyrSp3r9U" testnet />
           </div>
           <div className="">
             {width < 768 ? (
