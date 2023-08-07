@@ -20,6 +20,10 @@ module.exports = {
       url: process.env.GOERLI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
     },
+    mumbai: {
+      url: process.env.MUMBAI_RPC || "",
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
     mainnet: {
       url: process.env.MAINNET_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
