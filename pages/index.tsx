@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { NoRampOneClick } from "norampkit";
 import useWindowSize from "@/hooks/useWindowSize";
+import Link from "next/link";
+import { SiOpensea } from "react-icons/si";
 
 export default function Home() {
   const { width } = useWindowSize();
@@ -19,6 +21,14 @@ export default function Home() {
             <p className="font-bold text-5xl max-w-sm text-center text-white">
               ColorsOnChain
             </p>
+            <div className="p-4">
+              <Link
+                target="_blank"
+                href="https://opensea.io/collection/no-ramp-colors-on-chain"
+              >
+                <SiOpensea className="text-4xl text-white" />
+              </Link>
+            </div>
           </div>
 
           <div className="flex items-center justify-center flex-1">
