@@ -1451,6 +1451,18 @@
     "@stablelib/random" "^1.0.2"
     "@stablelib/wipe" "^1.0.1"
 
+"@stripe/react-stripe-js@^2.1.2":
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/@stripe/react-stripe-js/-/react-stripe-js-2.3.2.tgz#75111cf929fdc27f59947726c282f8a8a14d6f16"
+  integrity sha512-3sKdD4w6X/Hs1wbFNU9lc9uJP86YrNLNcfJpZpiD1lWAg46ROfi9EkT1HiEmWWPYEjjXereJ4C2Eg90uYMq1uQ==
+  dependencies:
+    prop-types "^15.7.2"
+
+"@stripe/stripe-js@^2.0.0":
+  version "2.1.11"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-js/-/stripe-js-2.1.11.tgz#cccef8eb27db75ec784945deaa882b0ed2a885b5"
+  integrity sha512-GRyInO+VPMjjgUzVPKpDtz+5s8JKssJ99uhWBGo09yxDQBb+bhkm6PxmVa8C+qsSd30JFO1Z+pgIJ0AMmmZJKg==
+
 "@swc/helpers@0.4.14":
   version "0.4.14"
   resolved "https://registry.yarnpkg.com/@swc/helpers/-/helpers-0.4.14.tgz#1352ac6d95e3617ccb7c1498ff019654f1e12a74"
@@ -8884,10 +8896,13 @@ nopt@3.x:
   dependencies:
     abbrev "1"
 
-norampkit@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/norampkit/-/norampkit-1.0.5.tgz#234d11e43f68d96e1bee2c1985cd3aafedef9d70"
-  integrity sha512-Vh5Rn1L7o0iSqnqSv5FXtKLIUQAYG+M6frATGm/alPvOBLVQjI5oEcUR0Hod2N6XWDPSolZFbfDyxX50ZnASIQ==
+norampkit@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/norampkit/-/norampkit-1.1.4.tgz#773f9c751d2a4017731c4ec04d1db60f5d42358d"
+  integrity sha512-nxJJabaC638bqGEOOYKL7hD7LsIyVbumiRzES8ikH6+aKAxOELum6cLNm6XjqWj9b3R2bBDgqcfyZHpDd2rXBg==
+  dependencies:
+    "@stripe/react-stripe-js" "^2.1.2"
+    "@stripe/stripe-js" "^2.0.0"
 
 normalize-package-data@^2.3.2:
   version "2.5.0"
@@ -9626,7 +9641,7 @@ promise@^8.0.0:
   dependencies:
     asap "~2.0.6"
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
