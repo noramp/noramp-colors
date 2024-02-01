@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { NoRampOneClick } from "norampkit";
+import { NoRampOneClick, NoRampCashout, NoRampPayout } from "norampkit";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
@@ -22,7 +22,14 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-center flex-1">
-            <NoRampOneClick priceId="price_40xjcBIuVqmwlNyrSp3r9U" testnet />
+            <NoRampOneClick
+              priceId="price_40xjcBIuVqmwlNyrSp3r9U"
+              // testnet
+              user="pepi@noramp.io"
+            />
+            {/* <NoRampPayout token={""} /> */}
+
+            <NoRampCashout />
           </div>
         </div>
       </main>
