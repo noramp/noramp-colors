@@ -36,12 +36,6 @@ export default function RootLayout({
       <meta property="og:url" content="https://new.noramp.io" />
       <body className="w-full h-full">
         {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
-        <header className="hidden lg:flex top-0 overflow-hidden z-50 flex-col items-center pt-5 px-20 w-full min-h-[800px] absolute max-md:pl-5 max-md:max-w-full">
-          <div>
-            <img src="/logo.png" className="w-24 h-24" alt="NoRamp Logo" />
-            <div></div>
-          </div>
-        </header>
         {/* <HeaderMobile /> */}
         {children}
         {/* <Footer /> */}
