@@ -17,6 +17,7 @@ export default async function handler(req: any, res: any) {
       headers: {
         "content-type": "application/json",
         authorization: `Bearer ${process.env.NORAMP_API_KEY}`,
+        // "Noramp-network": "testnet",
       },
       body: JSON.stringify(data),
     }

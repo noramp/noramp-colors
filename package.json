@@ -12,7 +12,6 @@
     "@next/font": "13.1.6",
     "@nomiclabs/hardhat-etherscan": "^3.1.6",
     "@openzeppelin/contracts": "^4.8.1",
-    "@rainbow-me/rainbowkit": "^0.8.1",
     "@types/node": ">=12.0.0",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
@@ -23,16 +22,18 @@
     "ethers": "^5.4.7",
     "hardhat-gas-reporter": "^1.0.9",
     "next": "13.1.6",
-    "norampkit": "^1.0.5",
+    "norampkit": "^1.2.4",
     "react": "18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
+    "typescript": ">=5.0.5"
     "react-icons": "^4.11.0",
-    "typescript": ">=4.5.0",
     "wagmi": "^0.11.5"
+
   },
   "devDependencies": {
+    "@nomicfoundation/hardhat-verify": "^2.0.4",
     "@nomiclabs/hardhat-ethers": "^2.2.2",
     "@nomiclabs/hardhat-waffle": "^2.0.5",
     "autoprefixer": "^10.4.13",
