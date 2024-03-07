@@ -28,6 +28,14 @@ module.exports = {
       url: process.env.SEPOLIA_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
     },
+    avaxMainnet: {
+      url: process.env.AVAX_MAINNET_RPC || "",
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
+    avaxFuji: {
+      url: process.env.AVAX_FUJI_RPC || "",
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
     "base-goerli": {
       url: "https://goerli.base.org",
       accounts: [process.env.PK],
@@ -35,7 +43,8 @@ module.exports = {
     },
     artio: {
       url: process.env.ARTIO_RPC || "",
-      // chainID: 80085,
+      chainID: 80085,
+    },
     mumbai: {
       url: process.env.MUMBAI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
