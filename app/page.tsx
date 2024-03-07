@@ -11,7 +11,7 @@ export default function Page() {
           <h1 className="text-3xl font-bold text-center mt-5">
             Colors On Chain by NoRamp
           </h1>
-          <p className="text-center mt-2">Chain: Ethereum</p>
+          <p className="text-center mt-2">Chain: Bera</p>
           <p className="text-center">
             NoRamp Colors are randomized hex colors generated and stored on
             chain. All functionality is intentionally omitted for others to
