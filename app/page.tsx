@@ -5,8 +5,12 @@ export default function Page() {
   return (
     <div className="overflow-hidden">
       <div className="w-full h-screen flex items-center justify-center">
-        <div className="bg-white rounded-xl w-full md:w-[481px] md:h-[560px] h-full drop-shadow flex flex-col items-center justify-center">
-          <img src="/images/colors.png" className="h-52" alt="NoRamp Logo" />
+        <div className="bg-white rounded-xl w-full md:w-[481px] md:h-[560px] h-full drop-shadow-2xl flex flex-col items-center justify-center">
+          <img
+            src="/images/colors.png"
+            className="h-52 drop-shadow-2xl"
+            alt="NoRamp Logo"
+          />
 
           <h1 className="text-3xl font-bold text-center mt-5">
             Colors On Chain by NoRamp
