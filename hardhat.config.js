@@ -20,6 +20,20 @@ module.exports = {
       url: process.env.GOERLI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
     },
+    sepolia: {
+      url: process.env.SEPOLIA_RPC || "",
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
+    "base-goerli": {
+      url: "https://goerli.base.org",
+      accounts: [process.env.PK],
+      gasPrice: 1000000000,
+    },
+    artio: {
+      url: process.env.ARTIO_RPC || "",
+      // chainID: 80085,
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
     mainnet: {
       url: process.env.MAINNET_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
