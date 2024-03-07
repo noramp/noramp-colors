@@ -43,7 +43,8 @@ module.exports = {
     },
     artio: {
       url: process.env.ARTIO_RPC || "",
-      // chainID: 80085,
+      chainID: 80085,
+    },
     mumbai: {
       url: process.env.MUMBAI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
