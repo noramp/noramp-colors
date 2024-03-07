@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { NoRampOneClick, useNoRampModal } from "norampkit";
+import { NoRampOneClick, NoRampCashout } from "norampkit";
+import { useNoRampModal } from "norampkit";
 import useWindowSize from "@/hooks/useWindowSize";
 import Link from "next/link";
 import { SiOpensea } from "react-icons/si";
@@ -42,14 +43,13 @@ export default function Home() {
 
             <NoRampOneClick
               priceId="price_40xjcBIuVqmwlNyrSp3r9U"
-              // testnet
               user="pepi@noramp.io"
             />
-            {/* <NoRampPayout token={""} /> */}
 
+            <NoRampOneClick testnet priceId="price_7artSQpId7LK966oRvaVck" />
             <NoRampCashout />
 
-<!--             <NoRampOneClick priceId="price_20iDZj5nETBUOi1i5kOqTa" /> -->
+          {/* <NoRampOneClick priceId="price_20iDZj5nETBUOi1i5kOqTa" /> */}
 
           </div>
         </div>
