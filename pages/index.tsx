@@ -1,9 +1,15 @@
 import Head from "next/head";
-import { NoRampOneClick, NoRampCashout, NoRampPayout } from "norampkit";
+import { NoRampOneClick, NoRampCashout,  } from "norampkit";
+import { useNoRampModal } from "norampkit";
 import useWindowSize from "@/hooks/useWindowSize";
 
 export default function Home() {
   const { width } = useWindowSize();
+
+  const { open, isOpen, close } = useNoRampModal({
+    priceId: "price_40xjcBIuVqmwlNyrSp3r9U",
+    user: "jeff@gmail.com",
+  });
 
   return (
     <>
