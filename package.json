@@ -22,12 +22,15 @@
     "ethers": "^5.4.7",
     "hardhat-gas-reporter": "^1.0.9",
     "next": "13.1.6",
-    "norampkit": "^1.2.3",
+    "norampkit": "^1.2.4",
     "react": "18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.0",
     "typescript": ">=5.0.5"
+    "react-icons": "^4.11.0",
+    "wagmi": "^0.11.5"
+
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-verify": "^2.0.4",

@@ -1,10 +1,12 @@
 import Head from "next/head";
-import { NoRampOneClick, NoRampCashout,  } from "norampkit";
-import { useNoRampModal } from "norampkit";
+import { NoRampOneClick, useNoRampModal } from "norampkit";
 import useWindowSize from "@/hooks/useWindowSize";
+import Link from "next/link";
+import { SiOpensea } from "react-icons/si";
 
 export default function Home() {
   const { width } = useWindowSize();
+
 
   const { open, isOpen, close } = useNoRampModal({
     priceId: "price_40xjcBIuVqmwlNyrSp3r9U",
@@ -21,13 +23,23 @@ export default function Home() {
       </Head>
       <main className="h-screen flex flex-col items-center justify-center">
         <div className="container flex flex-col items-center justify-center gap-8 px-4 mx-auto">
-          <div className="">
-            <p className="font-bold text-6xl max-w-sm text-center text-white">
+          <div className="flex flex-col items-center justify-center">
+            <p className="font-bold text-5xl max-w-sm text-center text-white">
+
               ColorsOnChain
             </p>
+            <div className="p-4">
+              <Link
+                target="_blank"
+                href="https://opensea.io/collection/no-ramp-colors-on-chain"
+              >
+                <SiOpensea className="text-4xl text-white" />
+              </Link>
+            </div>
           </div>
 
           <div className="flex items-center justify-center flex-1">
+
             <NoRampOneClick
               priceId="price_40xjcBIuVqmwlNyrSp3r9U"
               // testnet
@@ -36,6 +48,9 @@ export default function Home() {
             {/* <NoRampPayout token={""} /> */}
 
             <NoRampCashout />
+
+<!--             <NoRampOneClick priceId="price_20iDZj5nETBUOi1i5kOqTa" /> -->
+
           </div>
         </div>
       </main>

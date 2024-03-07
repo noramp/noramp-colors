@@ -16,6 +16,10 @@ module.exports = {
     },
   },
   networks: {
+    sepolia: {
+      url: process.env.SEPOLIA_RPC || "",
+      accounts: process.env.PK !== undefined ? [process.env.PK] : [],
+    },
     goerli: {
       url: process.env.GOERLI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
@@ -32,6 +36,8 @@ module.exports = {
     artio: {
       url: process.env.ARTIO_RPC || "",
       // chainID: 80085,
+    mumbai: {
+      url: process.env.MUMBAI_RPC || "",
       accounts: process.env.PK !== undefined ? [process.env.PK] : [],
     },
     mainnet: {
